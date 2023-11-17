@@ -1,0 +1,35 @@
+{
+    "name": "Deveropment environment for VSCode",
+
+    "dockerComposeFile": [
+        "../docker-compose.yml"
+    ],
+
+    "service": "dev",
+
+    "workspaceFolder": "/home/docker/workspace",
+
+    "postCreateCommand": "/bin/sh .devcontainer/install_packages_forVSCode.sh",
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-azuretools.vscode-docker",
+                "REditorSupport.r",
+                "mhutchie.git-graph",
+                "donjayamanne.githistory",
+                "eamodio.gitlens",
+                "ms-python.python",
+                "ms-python.isort"
+            ],
+            "settings": {
+                "r.lsp.promptToInstall": false,
+                "editor.codeActionsOnSave": {
+                    "source.organizeImports": true
+                },
+                "python.pythonPath": "/home/docker/.venv/bin/python",
+                "python.defaultInterpreterPath": "/home/docker/.venv/bin/python"
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+services:
+  dev:
+    build: 
+      context: .
+      dockerfile: ./.build/Dockerfile
+      args:
+        - GID=${GID:-1000}
+        - UID=${UID:-1000}
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/home/docker/workspace
+      - renv:/home/docker/.cache/R/renv
+volumes:
+  renv:
+    external: true
+    
